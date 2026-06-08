@@ -23,7 +23,7 @@ export const Header: React.FC<HeaderProps> = ({
   const [isSignoutOpen, setIsSignoutOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-40 bg-white/85 backdrop-blur-md border-b border-slate-200/80 h-[64px] px-6 flex items-center justify-between">
+    <header className="sticky top-0 z-40 bg-white/85 backdrop-blur-md border-b border-slate-200/80 h-[56px] sm:h-[64px] px-3 sm:px-6 flex items-center justify-between">
       <div className="flex items-center w-full md:max-w-md">
         <button
           onClick={onOpenMobileSidebar}
@@ -47,7 +47,7 @@ export const Header: React.FC<HeaderProps> = ({
         </div>
       </div>
 
-      <div className="flex items-center space-x-3.5 pl-4 shrink-0">
+      <div className="flex items-center space-x-2 sm:space-x-3.5 pl-2 sm:pl-4 shrink-0">
         <div className="relative">
           <div
             onClick={() => setIsHeaderProfileOpen(!isHeaderProfileOpen)}

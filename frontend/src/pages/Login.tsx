@@ -67,7 +67,7 @@ export const Login: React.FC = () => {
         <h1 className="text-2xl font-bold mt-2 text-slate-900 tracking-tight leading-none">TaskBunny</h1>
       </div>
 
-      <div className="w-full max-w-[420px] bg-white/70 border border-slate-200/80 p-8 rounded-[20px] shadow-card backdrop-blur-md relative z-10 text-center space-y-6 animate-fadeIn">
+      <div className="w-full max-w-[420px] bg-white/70 border border-slate-200/80 p-5 sm:p-8 rounded-2xl sm:rounded-[20px] shadow-card backdrop-blur-md relative z-10 text-center space-y-5 sm:space-y-6 animate-fadeIn">
 
         <div className="space-y-1">
           <h2 className="text-xl font-bold font-sans text-slate-900 tracking-tight">Welcome Back</h2>

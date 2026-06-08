@@ -2,7 +2,7 @@ import React from 'react';
 
 export const QuoteCard: React.FC = () => {
   return (
-    <div className="bg-gradient-to-br from-[#4F46E5] to-[#6366F1] text-white rounded-[20px] p-5 shadow-sm relative overflow-hidden group flex flex-col justify-between h-[150px] text-left">
+    <div className="bg-gradient-to-br from-[#4F46E5] to-[#6366F1] text-white rounded-2xl sm:rounded-[20px] p-4 sm:p-5 shadow-sm relative overflow-hidden group flex flex-col justify-between min-h-[130px] sm:h-[150px] text-left">
       <div className="relative z-10 space-y-1">
         <span className="text-3xl font-black leading-none opacity-40 select-none font-serif block">“</span>
         <p className="text-xs font-semibold leading-relaxed max-w-[150px] -mt-2">

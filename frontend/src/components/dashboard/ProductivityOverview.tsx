@@ -68,7 +68,7 @@ export const ProductivityOverview: React.FC<ProductivityOverviewProps> = ({
   const streakDays = calculateStreak(analyticsData);
 
   return (
-    <div className="bg-white border border-slate-200 rounded-[20px] p-5 shadow-sm space-y-5">
+    <div className="bg-white border border-slate-200 rounded-2xl sm:rounded-[20px] p-3.5 sm:p-5 shadow-sm space-y-4 sm:space-y-5">
       <h3 className="text-xs font-black text-slate-800 uppercase tracking-wider flex items-center gap-2 text-left">
         <BarChart2 className="w-4 h-4 text-[#4F46E5]" />
         <span>Productivity Overview</span>
@@ -126,22 +126,22 @@ export const ProductivityOverview: React.FC<ProductivityOverviewProps> = ({
         </ResponsiveContainer>
       </div>
 
-      <div className="grid grid-cols-2 gap-4 text-left">
+      <div className="grid grid-cols-2 gap-3 sm:gap-4 text-left">
 
-        <div className="p-3.5 bg-gradient-to-br from-indigo-50/40 to-indigo-100/10 border border-indigo-100/40 rounded-xl leading-normal flex items-center justify-between">
+        <div className="p-2.5 sm:p-3.5 bg-gradient-to-br from-indigo-50/40 to-indigo-100/10 border border-indigo-100/40 rounded-xl leading-normal flex items-center justify-between">
           <div>
             <span className="text-[9px] font-black text-indigo-600 block uppercase tracking-wider">This Week</span>
             <span className="text-lg font-black text-slate-900 mt-1 block">{completedTasksCount}</span>
             <span className="text-[9px] text-slate-400 font-semibold block mt-0.5">Completed</span>
           </div>
 
-          <div className="relative w-16 h-16 flex items-center justify-center shrink-0">
+          <div className="relative w-10 h-10 sm:w-16 sm:h-16 flex items-center justify-center shrink-0">
             <div className="absolute -bottom-0.5 w-7 h-2 bg-indigo-500/20 rounded-full blur-[4px] pointer-events-none"></div>
             <img src={trophyIcon} alt="Completed Trophy" className="w-full h-full object-contain relative z-10" />
           </div>
         </div>
 
-        <div className="p-3.5 bg-gradient-to-br from-orange-50/40 to-orange-100/10 border border-orange-100/40 rounded-xl leading-normal flex items-center justify-between">
+        <div className="p-2.5 sm:p-3.5 bg-gradient-to-br from-orange-50/40 to-orange-100/10 border border-orange-100/40 rounded-xl leading-normal flex items-center justify-between">
           <div>
             <span className="text-[9px] font-black text-orange-600 block uppercase tracking-wider">Streak</span>
             <span className="text-lg font-black text-slate-900 mt-1 block">
@@ -150,7 +150,7 @@ export const ProductivityOverview: React.FC<ProductivityOverviewProps> = ({
             <span className="text-[9px] text-slate-400 font-semibold block mt-0.5">Days</span>
           </div>
 
-          <div className="relative w-16 h-16 flex items-center justify-center shrink-0">
+          <div className="relative w-10 h-10 sm:w-16 sm:h-16 flex items-center justify-center shrink-0">
             <div className="absolute -bottom-0.5 w-7 h-2 bg-orange-500/30 rounded-full blur-[4px] pointer-events-none"></div>
             <img src={streakIcon} alt="Streak Flame" className="w-full h-full object-contain relative z-10" />
           </div>

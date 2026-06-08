@@ -241,13 +241,13 @@ export const Dashboard: React.FC = () => {
           onOpenMobileSidebar={() => setIsMobileSidebarOpen(true)}
         />
 
-        <main className="flex-1 p-6 md:p-8 w-full space-y-6">
+        <main className="flex-1 p-4 sm:p-6 md:p-8 w-full space-y-4 sm:space-y-6">
 
           <div className="flex flex-col sm:flex-row gap-4 sm:items-center sm:justify-between">
             <div>
-              <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-950 tracking-tight flex items-center gap-2">
+              <h2 className="text-xl sm:text-2xl md:text-3xl font-extrabold text-slate-950 tracking-tight flex items-center gap-2">
                 <span>Hey {getFirstName()}!</span>
-                <img src={wavingHandGif} alt="Waving hand" className="w-12 h-12 object-contain select-none pointer-events-none shrink-0" />
+                <img src={wavingHandGif} alt="Waving hand" className="w-9 h-9 sm:w-12 sm:h-12 object-contain select-none pointer-events-none shrink-0" />
               </h2>
               <p className="text-xs text-slate-400 mt-1 font-semibold">Let's crush those tasks today!</p>
             </div>
@@ -281,11 +281,11 @@ export const Dashboard: React.FC = () => {
           />
 
           {/* Content Split: Tasks Grid vs Analytics Overview */}
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8 items-start">
 
             {/* Left Section: Tasks List (2 Columns) */}
             <div className="lg:col-span-2 space-y-6">
-              <div className="bg-white border border-slate-200/90 rounded-[20px] p-5 shadow-sm space-y-5">
+              <div className="bg-white border border-slate-200/90 rounded-2xl sm:rounded-[20px] p-3.5 sm:p-5 shadow-sm space-y-4 sm:space-y-5">
                 <div className="flex flex-col sm:flex-row gap-4 items-center justify-between pb-3.5 border-b border-slate-100">
                   <div className="flex items-center space-x-2.5">
                     <Filter className="w-4 h-4 text-[#4F46E5]" />
@@ -347,7 +347,7 @@ export const Dashboard: React.FC = () => {
                 ) : (
                   <div className="space-y-6">
                     {/* 2 Column Tasks Grid layout */}
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-3.5 sm:gap-5">
                       {sortedTasksList.map((task) => (
                         <TaskCard
                           key={task._id}
@@ -420,7 +420,7 @@ export const Dashboard: React.FC = () => {
           </div>
         </main>
 
-        <footer className="bg-white border-t border-slate-200/80 py-4 text-center text-[10px] text-slate-400 mt-auto font-sans font-semibold">
+        <footer className="bg-white border-t border-slate-200/80 py-3 sm:py-4 px-4 text-center text-[10px] text-slate-400 mt-auto font-sans font-semibold">
           &copy; {new Date().getFullYear()} TaskBunny Inc. Designed by Arpit to streamline developer productivity.
         </footer>
       </div>

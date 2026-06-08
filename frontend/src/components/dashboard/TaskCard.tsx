@@ -27,7 +27,7 @@ export const TaskCard: React.FC<TaskCardProps> = ({
 
   return (
     <div
-      className={`group relative bg-white border border-slate-200 transition-all duration-300 rounded-[20px] p-5 flex flex-col justify-between card-glow text-left ${isCompleted ? 'bg-slate-50/40 opacity-90' : 'bg-white'
+      className={`group relative bg-white border border-slate-200 transition-all duration-300 rounded-2xl sm:rounded-[20px] p-3.5 sm:p-5 flex flex-col justify-between card-glow text-left ${isCompleted ? 'bg-slate-50/40 opacity-90' : 'bg-white'
         }`}
     >
       <div>
@@ -74,11 +74,11 @@ export const TaskCard: React.FC<TaskCardProps> = ({
         </p>
       </div>
 
-      <div className="pt-3.5 border-t border-slate-100 flex items-center justify-between">
+      <div className="pt-3 sm:pt-3.5 border-t border-slate-100 flex items-center justify-between gap-2">
         <button
           onClick={() => onToggleStatus(task)}
           disabled={isToggling}
-          className={`h-7 px-4 rounded-full text-[10px] font-bold flex items-center gap-1.5 transition-all active:scale-[0.98] ${isCompleted
+          className={`h-7 px-3 sm:px-4 rounded-full text-[10px] font-bold flex items-center gap-1 sm:gap-1.5 transition-all active:scale-[0.98] shrink-0 ${isCompleted
             ? 'border border-slate-200 bg-white text-slate-500 hover:bg-slate-50'
             : 'bg-gradient-to-r from-[#4F46E5] to-[#6366F1] text-white shadow-[inset_0px_2px_3px_rgba(255,255,255,0.35),_0px_3px_8px_rgba(79,70,229,0.2)] hover:shadow-[inset_0px_2px_4.5px_rgba(255,255,255,0.45),_0px_5px_12px_rgba(79,70,229,0.3)]'
             }`}
