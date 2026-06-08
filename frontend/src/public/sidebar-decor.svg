@@ -1,0 +1,13 @@
+<svg width="23" height="146" viewBox="0 0 23 146" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <filter id="inset-shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feOffset dx="2.5" dy="0" />
+      <feGaussianBlur stdDeviation="2.5" result="offset-blur" />
+      <feComposite operator="out" in="SourceGraphic" in2="offset-blur" result="inverse" />
+      <feFlood flood-color="#4F46E5" flood-opacity="0.1" result="color" />
+      <feComposite operator="in" in="color" in2="inverse" result="shadow" />
+      <feComposite operator="over" in="shadow" in2="SourceGraphic" />
+    </filter>
+  </defs>
+  <path d="M1.57494 37.5838L23 0V146L1.49149 106.991C0.513113 105.216 0 103.223 0 101.197V71.8033V43.5267C0 41.4426 0.542795 39.3944 1.57494 37.5838Z" fill="#EEF2FF" filter="url(#inset-shadow)"/>
+</svg>
