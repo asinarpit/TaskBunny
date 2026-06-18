@@ -12,6 +12,9 @@ dotenv.config();
 
 const app = express();
 
+// Trust proxy for rate limiting on Render/reverse proxies
+app.set('trust proxy', 1);
+
 app.use(helmet());
 app.use(
   cors({
@@ -22,6 +25,14 @@ app.use(
   })
 );
 
+
+// Uptime/keep-alive endpoint (bypasses global rate limiter)
+app.get('/api/ping', (req, res) => {
+  res.json({
+    success: true,
+    message: 'pong',
+  });
+});
 
 app.use(globalLimiter);
 
