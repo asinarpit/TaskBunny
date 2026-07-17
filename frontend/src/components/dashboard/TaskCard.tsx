@@ -1,5 +1,5 @@
 import React from 'react';
-import { Edit2, Trash2, Calendar, CheckCircle, Clock } from 'lucide-react';
+import { Edit2, Trash2, Calendar, CheckCircle, Clock, MoreVertical } from 'lucide-react';
 import { Task } from '../../types';
 
 interface TaskCardProps {
@@ -17,6 +17,9 @@ export const TaskCard: React.FC<TaskCardProps> = ({
   onToggleStatus,
   isToggling = false,
 }) => {
+  const [isMenuOpen, setIsMenuOpen] = React.useState(false);
+  const menuRef = React.useRef<HTMLDivElement>(null);
+
   const formattedDate = new Date(task.createdAt).toLocaleDateString(undefined, {
     year: 'numeric',
     month: 'short',
@@ -24,6 +27,20 @@ export const TaskCard: React.FC<TaskCardProps> = ({
   });
 
   const isCompleted = task.status === 'completed';
+
+  React.useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
+        setIsMenuOpen(false);
+      }
+    };
+    if (isMenuOpen) {
+      document.addEventListener('mousedown', handleClickOutside);
+    }
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [isMenuOpen]);
 
   return (
     <div
@@ -90,24 +107,41 @@ export const TaskCard: React.FC<TaskCardProps> = ({
           <span>{isCompleted ? 'Mark Pending' : 'Mark Completed'}</span>
         </button>
 
-        <div className="flex items-center space-x-1.5">
+        <div className="relative" ref={menuRef}>
           <button
-            onClick={() => onEdit(task)}
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
             className="w-7 h-7 rounded-full border border-slate-200/80 hover:bg-slate-50 flex items-center justify-center text-slate-400 hover:text-slate-700 transition-colors"
-            title="Edit Task"
+            title="More Actions"
           >
-            <Edit2 className="w-3.5 h-3.5" />
+            <MoreVertical className="w-4 h-4" />
           </button>
-
-          <button
-            onClick={() => onDelete(task._id)}
-            className="w-7 h-7 rounded-full border border-slate-200/80 hover:bg-red-50 hover:border-red-200 flex items-center justify-center text-red-500 hover:text-red-600 transition-colors"
-            title="Delete Task"
-          >
-            <Trash2 className="w-3.5 h-3.5" />
-          </button>
+          {isMenuOpen && (
+            <div className="absolute right-0 bottom-full mb-2 w-32 bg-white border border-slate-100 rounded-xl shadow-[0_10px_25px_-5px_rgba(0,0,0,0.1),0_8px_10px_-6px_rgba(0,0,0,0.1)] z-20 py-1.5 animate-in fade-in duration-100">
+              <button
+                onClick={() => {
+                  onEdit(task);
+                  setIsMenuOpen(false);
+                }}
+                className="flex items-center w-full px-3 py-1.5 text-xs font-semibold text-slate-700 hover:bg-slate-50 transition-colors gap-2"
+              >
+                <Edit2 className="w-3.5 h-3.5 text-slate-400" />
+                Edit
+              </button>
+              <button
+                onClick={() => {
+                  onDelete(task._id);
+                  setIsMenuOpen(false);
+                }}
+                className="flex items-center w-full px-3 py-1.5 text-xs font-semibold text-red-600 hover:bg-red-50/80 transition-colors gap-2"
+              >
+                <Trash2 className="w-3.5 h-3.5 text-red-400" />
+                Delete
+              </button>
+            </div>
+          )}
         </div>
       </div>
     </div>
   );
 };
+
